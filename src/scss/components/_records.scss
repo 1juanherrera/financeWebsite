@@ -1,0 +1,17 @@
+@use '../abstracts' as *;
+
+.records {
+    width: 30rem;
+    height: 41rem;
+    border-radius: 30px;
+    background: $white;
+
+    @include responsive(tablet-landscape){
+        width: 51rem;
+        margin: 0 auto;
+    }
+
+    @include responsive(tablet-portrait){
+        width: 35rem;
+    }
+}

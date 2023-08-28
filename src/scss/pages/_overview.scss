@@ -1,0 +1,7 @@
+@use '../abstracts' as *;
+
+.overview {
+    width: calc(100vh - 15rem );
+    margin-left: 15rem;
+    color: $white;
+}
