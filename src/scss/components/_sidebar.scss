@@ -1,17 +1,22 @@
 @use '../abstracts' as *;
 
 .sidebar {
-    width: 15rem;
+    width: 18rem;
     height: 100vh;
     background: $primary;
     position: fixed;
     color: $white;
 
+    @include responsive(tablet-grandscape){
+        display: none;
+    }
+
     &__main {
         @include flex(start, center);
         
+        //border: 1px solid white;
         flex-direction: column;
-        margin-top: 3rem;
+        margin-top: 6rem;
 
         &__content {
             @include flex(center, start);

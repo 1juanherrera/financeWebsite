@@ -1,11 +1,9 @@
-
-
-
+import { Header } from "../components"
 
 export const Budget = () => {
     return (
        <div className="budget">
-            <h1>Budget</h1>
+            <Header text='Budget' name='Juan'/>
        </div>
     )
 }

@@ -1,0 +1,11 @@
+@use '../abstracts' as *;
+
+.rates {
+    width: 21rem;
+    //height: 300px;
+    //border: 1px solid white;
+    height: 33rem;
+    border-radius: 30px;
+    background: $primary;
+
+}

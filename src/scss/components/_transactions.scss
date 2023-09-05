@@ -1,0 +1,40 @@
+@use '../abstracts' as *;
+
+.transactions {
+    width: 21rem;
+    height: 33rem;
+    background: $primary;
+    border-radius: 30px;
+    @include flex(center, center);
+    flex-direction: column;
+    //border: 1px solid white;
+
+    &__header {
+        width: 85%;
+        @include flex(center, space-between);
+
+        &__text {
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        &__button {
+            background: $primary;
+            border: none;
+            cursor: pointer;
+        }
+    }
+
+    &__content {
+        width: 90%;
+        height: 85%;
+        //border: 1px solid white;
+        @include flex(center, center);
+        text-align: center;
+
+        &__text {
+            font-size: .9rem;
+            color: $dark-gray;
+        }
+    }
+}

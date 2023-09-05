@@ -10,15 +10,25 @@
         @content;
       } // 600px
     }
+    @if $breakpoint == tablet-small {
+      @media (max-width: 43.75em) {
+        @content;
+      } // 700px
+    }
     @if $breakpoint == tablet-portrait {
       @media (max-width: 56.25em) {
         @content;
       } // 900px
     }
-    @if $breakpoint == tablet-landscape {
-      @media (max-width: 75rem) {
+    @if $breakpoint == tablet-grandscape {
+      @media (max-width: 68.75em) {
         @content;
-      } // 1200px
+      } // 1100px
+    }
+    @if $breakpoint == tablet-landscape {
+      @media (max-width: 78.125em) {
+        @content;
+      } // 1250px
     }
     @if $breakpoint == big-desktop {
       @media (min-width: 112.5em) {

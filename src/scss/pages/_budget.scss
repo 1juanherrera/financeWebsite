@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
 .budget {
-    width: calc(100vh - 15rem );
-    margin-left: 15rem;
+    width: calc(100vw - 16rem );
+    margin-left: 16rem;
     color: $white;
 }

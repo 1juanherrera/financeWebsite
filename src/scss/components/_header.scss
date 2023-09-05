@@ -1,0 +1,49 @@
+@use '../abstracts' as *;
+
+.header {
+    width: 80%;
+    padding: 3rem 0 0 0;
+    @include flex(center, space-between);
+
+    @include responsive(tablet-landscape) {
+        padding: 2rem 0 2rem 0;
+        width: 85%;
+    }
+
+    @include responsive(tablet-grandscape){
+        margin: 0 auto;
+        width: 60%;
+    }
+
+    @include responsive(tablet-grandscape){
+        margin: 0 auto;
+        width: 60%;
+    }
+
+    @include responsive(tablet-portrait){
+        margin: 0 auto;
+        width: 85%;
+    }
+
+    &__text {
+        font-size: 1.9rem;
+        font-weight: 600
+    }
+
+    &__profile {
+        @include flex(center, center);
+
+        &__name {
+            margin-right: 1rem;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        &__img {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: $green;
+        }
+    }
+}

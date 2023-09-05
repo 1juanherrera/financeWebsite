@@ -1,0 +1,140 @@
+@use '../abstracts' as *;
+
+.informs {
+    width: 21rem;
+    height: 15.625rem;
+    border-radius: 30px;
+    background: $primary;
+    @include flex(center, start);
+    flex-direction: column;
+    position: relative;
+
+    &__header {
+        width: 85%;
+        margin-top: 1.2rem;
+
+        &__text {
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+    }
+
+    &__content {
+        @include flex(center, start);
+        width: 85%;
+        flex-wrap: wrap;
+
+        &__incomes {
+            margin-top: 1rem;
+            @include flex(center, start);
+            width: 125px;
+            position: relative;
+
+            &__circle {
+                @include flex(center, center);
+                border-radius: 50%;
+                width: 2.5rem;
+                height: 2.5rem;
+                background: $dark-green;
+            }
+
+            &__text {
+                margin-left: 0.5rem;
+
+                &__balance {
+                    color: $gray;
+                    font-size: 1.2rem;
+                    font-weight: 400;
+                    position: absolute;
+                    top: 0;
+                }
+    
+                &__name {
+                    color: $dark-gray;
+                    font-size: .9rem;
+                    position: absolute;
+                    bottom: 0;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        &__spent {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+            @include flex(center, start);
+            width: 125px;
+            position: relative;
+
+            &__circle {
+                @include flex(center, center);
+                border-radius: 50%;
+                width: 2.5rem;
+                height: 2.5rem;
+                background: $dark-red;
+            }
+
+            &__text {
+                margin-left: 0.5rem;
+
+                &__balance {
+                    color: $gray;
+                    font-size: 1.2rem;
+                    font-weight: 400;
+                    position: absolute;
+                    top: 0;
+                }
+    
+                &__name {
+                    color: $dark-gray;
+                    font-size: .9rem;
+                    position: absolute;
+                    bottom: 0;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        &__saved {
+            margin-top: 1.5rem;
+            @include flex(center, start);
+            width: 125px;
+            position: relative;
+
+            &__circle {
+                @include flex(center, center);
+                border-radius: 50%;
+                width: 2.5rem;
+                height: 2.5rem;
+                background: $dark-blue;
+            }
+
+            &__text {
+                margin-left: 0.5rem;
+
+                &__balance {
+                    color: $gray;
+                    font-size: 1.2rem;
+                    font-weight: 400;
+                    position: absolute;
+                    top: 0;
+                }
+    
+                &__name {
+                    font-weight: 400;
+                    color: $dark-gray;
+                    font-size: .9rem;
+                    position: absolute;
+                    bottom: 0;
+                }
+            }
+        }
+    }
+
+    &__lineup {
+        position: absolute;
+        bottom: 25px;
+        width: 100%;
+    }
+
+}

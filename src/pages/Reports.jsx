@@ -1,3 +1,4 @@
+import { Header } from "../components"
 
 
 
@@ -5,7 +6,7 @@
 export const Reports = () => {
     return (
         <div className="reports">
-            <h1>Reports</h1>
+            <Header text='Reports' name='Juan'/>
         </div>
     )
 }

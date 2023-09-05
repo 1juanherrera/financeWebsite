@@ -1,7 +1,55 @@
 @use '../abstracts' as *;
 
 .overview {
-    width: calc(100vh - 15rem );
-    margin-left: 15rem;
+    width: calc(100vw - 18rem );
+    margin-left: 22rem;
     color: $white;
+    max-width: 1250px;
+    //border: 1px solid white;
+
+    @include responsive(tablet-grandscape){
+        margin-left: 0;
+        margin: 0 auto;
+        width: 100vw;
+    }
+
+    &__content {
+        //border: 1px solid white;
+        padding: 2rem 0 2rem 0;
+        width: 85%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto;
+        gap: 1rem;
+
+        @include responsive(tablet-landscape){
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include responsive(tablet-grandscape){
+            margin: 0 auto;
+            grid-template-columns: repeat(2, 1fr);
+            width: 75%;
+        }
+
+        @include responsive(tablet-portrait){
+            width: 95%
+        }
+
+        @include responsive(tablet-small){
+            @include flex(center, center);
+            flex-direction: column; 
+            grid-template-columns: 1fr;
+            //width: 50%; 
+        }
+
+        &__flex {
+            //border: 1px solid white;
+            @include flex(center, space-between);
+            flex-direction: column;
+            display: grid;
+            gap: 1rem;
+            
+        }
+    }
 }

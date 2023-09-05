@@ -1,117 +1,112 @@
 @use '../abstracts' as *;
 
-.percents {
-    width: 51rem;
-    height: 21rem;
-    margin: 1rem 0 0 0;
-    @include flex(center, space-between);
-    background: $white;
+.saved {
+    width: 21rem;
+    height: 15.625rem;
     border-radius: 30px;
+    background: $primary;
+    @include flex(center, start);
+    flex-direction: column;
 
-    @include responsive(tablet-landscape){
-        width: 51rem;
-        margin-bottom: 2rem;
-    }
+    &__header {
+        width: 85%;
+        margin-top: 1.2rem;
+        @include flex(center, space-between);
 
-    @include responsive(tablet-portrait){
-       width: 35rem;
-       height: 50rem;
-       flex-direction: column;
-    }
-
-    &__transactions {
-        border-right: 1px solid lightgray;
-        height: 21rem;
-        width: 28rem;
-
-        @include responsive(tablet-portrait){
-            height: 25rem;
-            width: 35rem;
-            border-bottom: 1px solid $gray;
-        }
-
-        &__hero {
-            margin: 1rem;
-            @include flex(center, space-between);
-            height: 3rem;
-
-            &__title {
-                font-size: 1.5rem;
-                font-weight: 600;
-
-                @include responsive(tablet-portrait){
-                    font-size: 2rem;
-                }
-            }
-
-            &__arrow {
-                border: none;
-                cursor: pointer;
-                background: $white;
-
-                svg {
-                    font-size: 1.6rem;
-                    color: $gray;
-
-                    @include responsive(tablet-portrait){
-                       font-size: 2rem
-                    }
-                }
-            }
-        }
-    }
-
-    &__register {
-        @include flex(center, center);
-        margin: 1rem;
-        height: 70%;
-
-        &__note {
-            color: $gray;
-            text-align: center;
-
-            @include responsive(tablet-portrait){
-                font-size: 1.5rem;
-            }
-        }
-    }
-
-    &__picture {
-        width: 23rem;
-        height: 21rem;
-
-        @include responsive(tablet-portrait){
-            @include flex(center, center);
-            flex-direction: column;
-            height: 25rem;
-        }
-
-        &__title {
-            text-align: center;
-            font-size: 1.2rem;
+        &__text {
+            font-size: 1.4rem;
             font-weight: 500;
-            margin-top: 1.5rem;
-
-            @include responsive(tablet-portrait){
-                margin-top: 0;
-                font-size: 2rem;
-                width: 35rem;
-            }
         }
 
-        &__background {
-            @include flex(center, center);
-            width: 20rem;
-            height: 17rem;
-            margin: 0 auto;
-            border-radius: 30px;
-            background: $body-bg;
-
-            @include responsive(tablet-portrait){
-                width: 25rem;
-                height: 20rem;
-                margin-bottom: 1rem;
-            }
+        &__button {
+            background: $primary;
+            border: none;
+            cursor: pointer;
         }
     }
+
+    &__deposit {
+        margin-top: 0.5rem;
+        width: 85%;
+        height: 4rem;
+        @include flex(center, start);
+        position: relative;
+
+        &__circle {
+            @include flex(center, center);
+            background: $dark-blue;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+
+            img {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+
+        &__text {
+            margin-left: 0.5rem;
+            color: $gray;
+
+            &__principal {
+                font-size: 2rem;
+            }
+
+            &__dependent {
+                position: relative;
+                bottom: 0.5rem;
+                font-size: 0.9rem;
+                font-weight: 400;
+                color: $dark-gray;
+            }
+        }
+
+        &__pin {
+            position: absolute;
+            right: 0;
+            top: 1rem;
+        }
+    }
+
+    &__saving {
+        @include flex(center, start);
+        margin-top: 1rem;
+        width: 100%;
+        border-radius: 0 0 30px 30px;
+        height: 7rem;
+        background: $green;
+
+        &__circle {
+            margin-left: 1.5rem;
+            @include flex(center, center);
+            width: 3.125rem;
+            height: 3.125rem;
+            background: #C3FFED;
+            border-radius: 50%;
+        }
+
+        &__deposit {
+            margin-left: 0.5rem;
+            
+            &__number {
+                font-weight: 400;
+                font-size: 2rem;
+
+                b {
+                    font-weight: 400;
+                    font-size: 1.2rem;
+                }
+            }
+
+            &__text {
+                position: relative;
+                font-weight: 300;
+                bottom: 0.5rem;
+                font-size: .9rem;
+            }
+
+        }
+    }
+
 }

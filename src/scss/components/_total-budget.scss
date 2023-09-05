@@ -1,0 +1,98 @@
+@use '../abstracts' as *;
+
+.total-budget {
+    width: 21rem;
+    height: 15.625rem;
+    border-radius: 30px;
+    background: $primary;
+    @include flex(center, start);
+    flex-direction: column;
+
+    &__header {
+        width: 85%;
+        margin-top: 1.2rem;
+        @include flex(center, space-between);
+
+        &__text {
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        &__button {
+            background: $primary;
+            border: none;
+            cursor: pointer;
+        }
+    }
+
+    &__wallet {
+        @include flex(center, start);
+        width: 85%;
+        margin-top: 1rem;   
+
+        &__circle {
+            @include flex(center, center);
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: $dark-green;
+
+            img {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+
+        &__balance {
+            margin-left: 0.5rem;
+            font-size: 1.6rem;
+            font-weight: 500;
+            line-height: normal;
+
+            b {
+                font-size: 2rem;
+                font-weight: 500;
+            }
+        }
+
+    }
+
+    &__line-green {
+        margin-top: 1rem;
+        width: 100%;
+        height: 2px;
+        background: $green;
+    }
+
+    &__percents {
+        margin-top: 0.5rem;
+        font-size: .9rem;
+        width: 85%;
+        //border: 1px solid white;
+        color: $dark-gray;
+
+        &__content {
+            margin-top: 1rem;
+            @include flex(center, space-evenly);
+            //border: 1px solid white;
+
+            &__expense {
+                border-radius: 15px;
+                @include flex(center, center);
+                background: $dark-red;
+                width: 5rem;
+                height: 2rem;
+                color: $red;
+            }
+
+            &__income {
+                border-radius: 15px;
+                @include flex(center, center);
+                background: $dark-green;
+                width: 5rem;
+                height: 2rem;
+                color: $green;
+            }
+        }
+    }
+}
