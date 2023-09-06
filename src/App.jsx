@@ -1,10 +1,15 @@
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import { OverView, Budget, Settings, Reports } from './pages';
-import { Sidebar } from './components';
+import { Modal, Sidebar } from './components';
+import { useSelector } from 'react-redux';
 
 export const App = () => {
+
+    const { isShow } = useSelector( state => state.show )
+
     return (
         <HashRouter>
+            { isShow && <Modal /> } 
             <Sidebar />
             <Routes >
 

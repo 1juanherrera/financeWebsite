@@ -1,11 +1,16 @@
+import { useDispatch } from 'react-redux';
 import add from '../assets/add.svg';
+import { toggleShow } from '../store/slices/show';
 
 export const Transactions = () => {
+
+    const dispatch = useDispatch();
+
     return (
         <div className="transactions">
             <div className="transactions__header">
                     <h3 className="transactions__header__text">All transactions</h3>
-                    <button className="transactions__header__button">
+                    <button onClick={() => dispatch( toggleShow() ) } className="transactions__header__button">
                         <img src={ add } />
                     </button>
             </div>
