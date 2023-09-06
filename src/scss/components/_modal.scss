@@ -10,8 +10,6 @@
     bottom: 0;
     overflow: auto;
     @include overlay();
-    //opacity: 0;
-    //visibility: hidden;
     
     &__content {
         width: 30rem;
@@ -19,10 +17,8 @@
         padding: 2rem;
         background-color: $primary;
         color: $white;
-        //border: 1px solid white;
 
         &__header {
-            //border: 1px solid white;
             @include flex(center, space-between);
 
             &__title {
@@ -43,6 +39,32 @@
             }
         }
 
+        &__description {
+            margin-top: 2rem;
+            @include flex(center, start);
+
+            svg {
+                font-size: 1.8rem;
+                color: $dark-gray;
+            }
+
+            &__input {
+                border: none;
+                background: $primary;
+                border-bottom: 2px solid $dark-gray;
+                margin-left: 0.5rem;
+                width: 80%;
+                color: $dark-gray;
+                font-size: 1.3rem;
+                text-transform: capitalize;
+                font-family: 'Poppins', sans-serif;
+
+                &::placeholder {
+                    font-weight: 400;
+                }
+            }
+        }
+
         &__balance {
             margin-top: 2rem;
             @include flex(center, start);
@@ -57,8 +79,8 @@
                 background: $primary;
                 border-bottom: 2px solid $dark-gray;
                 margin-left: 0.5rem;
-                width: 22rem;
-                color: $white;
+                width: 80%;
+                color: $dark-gray;
                 font-size: 1.3rem;
                 font-family: 'Poppins', sans-serif;
 
@@ -101,7 +123,7 @@
         }
 
         &__button {
-            margin-top: 2rem;
+            margin-top: 3rem;
             position: relative;
             right: 0;
             padding: 0.7rem;

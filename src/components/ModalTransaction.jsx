@@ -1,13 +1,15 @@
 import { IoClose, IoColorPalette } from "react-icons/io5"
+import { MdOutlineDescription } from "react-icons/md";
 import { BsFillCalculatorFill } from "react-icons/bs"
 import { CirclePicker } from "react-color";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleShow } from "../store/slices/show";
+import { changeCurrentColor } from "../store/slices/currentColor";
 
-export const Modal = () => {
 
-    const [ currentColor, setCurrentColor ] = useState('#F44336')
+export const ModalTransaction = () => {
+
+    const { currentColor } = useSelector( state => state.currentColor )
 
     const dispatch = useDispatch();
 
@@ -17,7 +19,7 @@ export const Modal = () => {
     }
 
     const changeColor = ( color ) => {
-        setCurrentColor( color.hex );
+        dispatch(changeCurrentColor( color.hex ))
     } 
 
     return (
@@ -28,6 +30,14 @@ export const Modal = () => {
                 <button onClick={ () => dispatch(toggleShow()) }>
                     <IoClose />
                 </button>
+                </div>
+                <form>
+                <div className="modal__content__description">
+                    <MdOutlineDescription />
+                    <input type="text" 
+                    className="modal__content__description__input"
+                    placeholder="Description"
+                    />
                 </div>
                 <div className="modal__content__balance">
                     <BsFillCalculatorFill />
@@ -49,12 +59,8 @@ export const Modal = () => {
                     onChangeComplete={ changeColor }
                     />
                 </div>
-                <div className="modal__content__icon">
-                    <div className="modal__content__icon__category">
-
-                    </div>
-                </div>
                 <button className="modal__content__button">Enviar</button>
+                </form>
             </div>
         </div>
     )

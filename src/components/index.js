@@ -8,4 +8,4 @@ export * from './Investment';
 export * from './CreditCard';
 export * from './Saved';
 export * from './Transactions';
-export * from './Modal';
+export * from './ModalTransaction';
