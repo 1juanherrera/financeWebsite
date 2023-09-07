@@ -11,9 +11,7 @@ export const Transactions = () => {
 
     return (
         <>
-        
         { isShow && <ModalTransaction /> } 
-
         <div className="transactions">
             <div className="transactions__header">
                     <h3 className="transactions__header__text">All transactions</h3>

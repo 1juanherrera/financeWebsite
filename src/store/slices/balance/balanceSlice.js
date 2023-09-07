@@ -11,7 +11,7 @@ export const balanceSlice = createSlice({
    },
    reducers: {
         totalBalance: ( state, action ) => {
-            state.balance = action.payload;
+            state.balance += action.payload;
             localStorage.setItem('balance', JSON.stringify(state.balance));
         }
     }

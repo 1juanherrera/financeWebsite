@@ -4,7 +4,7 @@ import { BsFillCalculatorFill } from "react-icons/bs"
 import { CirclePicker } from "react-color";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleShow } from "../store/slices/show";
-import { changeCurrentColor } from "../store/slices/currentColor";
+import { changeCurrentColor } from "../store/slices/color";
 
 
 export const ModalTransaction = () => {

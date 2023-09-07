@@ -9,3 +9,4 @@ export * from './CreditCard';
 export * from './Saved';
 export * from './Transactions';
 export * from './ModalTransaction';
+export * from './ModalBalance';

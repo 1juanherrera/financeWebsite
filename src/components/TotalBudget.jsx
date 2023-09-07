@@ -1,16 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import add from '../assets/add.svg';
 import wallet from '../assets/wallet.svg';
-import { totalBalance } from '../store/slices/balance/balanceSlice'; 
-import { toggleShow } from '../store/slices/show';
+import { toggleView } from '../store/slices/show';
 import { useState } from 'react';
+import { ModalBalance } from './ModalBalance';
 
 export const TotalBudget = () => {
 
-    const [ addition, setAddition ] = useState(0);
-
     const { balance } = useSelector( state => state.balance );
-    const { isShow } = useSelector( state => state.show );
+    const { isView } = useSelector( state => state.show )
     const dispatch = useDispatch()
 
     const f = new Intl.NumberFormat('es-CO', {
@@ -19,14 +17,17 @@ export const TotalBudget = () => {
         minimumFractionDigits: 2,
     });
 
-    const number = 5000
-
+    const number = 3000
 
     return (
+        <>
+
+        { isView && <ModalBalance /> }
+
         <div className="total-budget">
                 <div className="total-budget__header">
                     <h3 className="total-budget__header__text">Total Budget</h3>
-                    <button className="total-budget__header__button" onClick={ () => dispatch(totalBalance(f.format(number))) }>
+                    <button className="total-budget__header__button" onClick={ () => dispatch( toggleView() ) }>
                         <img src={ add } />
                     </button>
                 </div>
@@ -34,7 +35,7 @@ export const TotalBudget = () => {
                     <div className='total-budget__wallet__circle'>
                         <img src={ wallet } />
                     </div>
-                    <h3 className='total-budget__wallet__balance'>{balance}</h3>
+                    <h3 className='total-budget__wallet__balance' style={{ color: balance == 0 ? '#C1C1C1' : 'white' }} >{ f.format(balance) }</h3>
                 </div>
                 <div className='total-budget__line-green'></div>
                 <div className='total-budget__percents'>
@@ -48,7 +49,8 @@ export const TotalBudget = () => {
                         </div>
                     </div>
                 </div>
-        </div>  
+        </div>
+        </>  
     )
 }
 
