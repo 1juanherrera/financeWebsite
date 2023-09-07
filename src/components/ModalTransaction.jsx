@@ -2,24 +2,26 @@ import { IoClose, IoColorPalette } from "react-icons/io5"
 import { MdOutlineDescription } from "react-icons/md";
 import { BsFillCalculatorFill } from "react-icons/bs"
 import { CirclePicker } from "react-color";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleShow } from "../store/slices/show";
-import { changeCurrentColor } from "../store/slices/color";
+import { useColorStore } from "../hooks/useColorStore";
+import { useShowStore } from "../hooks/useShowStore";
+import { dataSlice } from "../store/slices/data/dataSlice";
+import { useDispatch } from "react-redux";
 
 
 export const ModalTransaction = () => {
 
-    const { currentColor } = useSelector( state => state.currentColor )
+    const { changeColor, appStyle, currentColor } = useColorStore(); 
+    const { handleShow } = useShowStore();
+    
+    const dispatch = useDispatch()
+;
+    const { data, totalData } = dataSlice();
 
-    const dispatch = useDispatch();
+    const handleInputChange = ({ target }) => {
+        const { name, values } = target;
 
-    const appStyle = {
-        background: currentColor,
-        color: currentColor,
-    }
+        dispatch({})
 
-    const changeColor = ( color ) => {
-        dispatch(changeCurrentColor( color.hex ))
     } 
 
     return (
@@ -27,7 +29,7 @@ export const ModalTransaction = () => {
             <div className="modal__content">
                 <div className="modal__content__header">
                 <h3 className="modal__content__header__title">New income</h3>
-                <button onClick={ () => dispatch(toggleShow()) }>
+                <button onClick={ handleShow }>
                     <IoClose />
                 </button>
                 </div>
@@ -56,7 +58,7 @@ export const ModalTransaction = () => {
                     </div>
                     <CirclePicker 
                     color={ currentColor }
-                    onChangeComplete={ changeColor }
+                    onChangeComplete={ changeColor }    
                     />
                 </div>
                 <button className="modal__content__button">Enviar</button>

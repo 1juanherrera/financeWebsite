@@ -1,13 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux';
 import add from '../assets/add.svg';
-import { toggleShow } from '../store/slices/show';
 import { ModalTransaction } from './ModalTransaction';
+import { useShowStore } from '../hooks/useShowStore';
 
 export const Transactions = () => {
 
-    const { isShow } = useSelector( state => state.show )
-
-    const dispatch = useDispatch();
+   const { isShow, handleShow } = useShowStore();
 
     return (
         <>
@@ -15,7 +12,7 @@ export const Transactions = () => {
         <div className="transactions">
             <div className="transactions__header">
                     <h3 className="transactions__header__text">All transactions</h3>
-                    <button onClick={() => dispatch( toggleShow() ) } className="transactions__header__button">
+                    <button onClick={ handleShow } className="transactions__header__button">
                         <img src={ add } />
                     </button>
             </div>

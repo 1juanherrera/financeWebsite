@@ -1,34 +1,24 @@
 import { IoClose } from "react-icons/io5"
 import { BsFillCalculatorFill } from "react-icons/bs"
-import { useDispatch } from "react-redux";
-import { toggleView } from "../store/slices/show";
-import { totalBalance } from "../store/slices/balance";
+import { useBalanceStore } from "../hooks/useBalanceStore";
+import { useShowStore } from "../hooks/useShowStore";
 
 export const ModalBalance = () => {
 
 
-    const dispatch = useDispatch();
-
-    const addBalance = (e) => {
-        e.preventDefault();
-
-        dispatch(totalBalance(Number(e.target[0].value)))
-
-        dispatch(toggleView())
-    }
-
-    console.log(totalBalance)
+    const { handleView } = useShowStore();
+    const { addBalance } = useBalanceStore();
 
     return (
         <div className="modal">
             <div className="modal__content">
                 <div className="modal__content__header">
                 <h3 className="modal__content__header__title">New balance</h3>
-                <button onClick={ () => dispatch(toggleView()) }>
+                <button onClick={ handleView }>
                     <IoClose />
                 </button>
                 </div>
-                <form onSubmit={ (e) => addBalance(e) }>
+                <form onSubmit={ addBalance }>
                 <div className="modal__content__balance">
                     <BsFillCalculatorFill />
                     <input

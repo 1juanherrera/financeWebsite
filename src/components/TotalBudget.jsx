@@ -1,23 +1,19 @@
-import { useDispatch, useSelector } from 'react-redux';
 import add from '../assets/add.svg';
 import wallet from '../assets/wallet.svg';
-import { toggleView } from '../store/slices/show';
-import { useState } from 'react';
 import { ModalBalance } from './ModalBalance';
+import { useShowStore } from '../hooks/useShowStore';
+import { useBalanceStore } from '../hooks/useBalanceStore';
 
 export const TotalBudget = () => {
 
-    const { balance } = useSelector( state => state.balance );
-    const { isView } = useSelector( state => state.show )
-    const dispatch = useDispatch()
+    const { isView, handleView } = useShowStore();
+    const { balance } = useBalanceStore();
 
     const f = new Intl.NumberFormat('es-CO', {
         style: 'currency',
         currency: 'COP',
         minimumFractionDigits: 2,
     });
-
-    const number = 3000
 
     return (
         <>
@@ -27,7 +23,7 @@ export const TotalBudget = () => {
         <div className="total-budget">
                 <div className="total-budget__header">
                     <h3 className="total-budget__header__text">Total Budget</h3>
-                    <button className="total-budget__header__button" onClick={ () => dispatch( toggleView() ) }>
+                    <button className="total-budget__header__button" onClick={ handleView }>
                         <img src={ add } />
                     </button>
                 </div>
