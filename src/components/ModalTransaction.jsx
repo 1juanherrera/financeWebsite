@@ -4,25 +4,18 @@ import { BsFillCalculatorFill } from "react-icons/bs"
 import { CirclePicker } from "react-color";
 import { useColorStore } from "../hooks/useColorStore";
 import { useShowStore } from "../hooks/useShowStore";
-import { dataSlice } from "../store/slices/data/dataSlice";
-import { useDispatch } from "react-redux";
+import { useDataStore } from "../hooks/useDataStore";
 
 
 export const ModalTransaction = () => {
 
     const { changeColor, appStyle, currentColor } = useColorStore(); 
     const { handleShow } = useShowStore();
-    
-    const dispatch = useDispatch()
-;
-    const { data, totalData } = dataSlice();
 
-    const handleInputChange = ({ target }) => {
-        const { name, values } = target;
 
-        dispatch({})
+    const { tempData, onInputChange, onResetForm, onSubmit } = useDataStore();
 
-    } 
+
 
     return (
         <div className="modal">
@@ -33,10 +26,12 @@ export const ModalTransaction = () => {
                     <IoClose />
                 </button>
                 </div>
-                <form>
+                <form onSubmit={ onSubmit }>
                 <div className="modal__content__description">
                     <MdOutlineDescription />
                     <input type="text" 
+                    name="description"
+                    onChange={ onInputChange }
                     className="modal__content__description__input"
                     placeholder="Description"
                     />
@@ -44,7 +39,9 @@ export const ModalTransaction = () => {
                 <div className="modal__content__balance">
                     <BsFillCalculatorFill />
                     <input
+                    onChange={ onInputChange }
                     className="modal__content__balance__input" 
+                    name="price"
                     type="number" 
                     placeholder="$ 0.00" 
                     min='1' 

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const showSlice = createSlice({
    name: 'show',
    initialState: {
-       isShow: false,
+       isShow: true,
        isView: false
    },
    reducers: {

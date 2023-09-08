@@ -1,24 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const tempData = localStorage.getItem('data') !== null 
-? JSON.parse(localStorage.getItem('data')) 
-: {
-    description: '',
-    price: '',
-    color: '',
-};
+
 
 export const dataSlice = createSlice({
    name: 'data',
    initialState: {
-       data: [
-        tempData
-       ]
+        description: '',
+        price: '',
+        color: '',
    },
    reducers: {
         totalData: ( state, action ) => {
-            state.data = action.payload;
-            localStorage.setItem('data', JSON.stringify(state.data));
+            state.tempData = action.payload;
+            //localStorage.setItem('data', JSON.stringify(state.data));
         }
     }
 });
