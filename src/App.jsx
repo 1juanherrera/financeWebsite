@@ -9,6 +9,7 @@ export const App = () => {
     return (
         <HashRouter>
             <Sidebar />
+
             <Routes >
 
                 <Route path='/' element={ <OverView /> } />
@@ -18,6 +19,7 @@ export const App = () => {
                 <Route path='/reports' element={ <Reports /> } />
 
             </Routes>
+            
         </HashRouter>
     )
 }
